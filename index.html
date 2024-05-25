@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clother-Main</title>
+    <link href="./src/css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>메인페이지</h1>
+      <button id="link">홈페이지로 이동</button>
+      <script>
+        document.getElementById("link").onclick = function () {
+          window.location.replace("home.html");
+        };
+      </script>
+    </div>
+  </body>
+</html>
