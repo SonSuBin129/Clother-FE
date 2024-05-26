@@ -7,12 +7,15 @@
   </head>
   <body>
     <nav>
-      <ul>
-        <li>Clother(아이콘 자리)</li>
-        <li><a href="today.html">today</a></li>
-        <li><a href="tomorrow.html">tomorrow</a></li>
-        <li><a href="index.html">Home</a></li>
-      </ul>
+      <div>Clother(아이콘 자리)</div>
+      <div><a href="today.html">today</a></div>
+      <div><a href="tomorrow.html">tomorrow</a></div>
+      <button id="HomeButton">Home</button>
     </nav>
+    <script>
+      document.querySelector("#HomeButton").onclick = function () {
+        window.location.replace("index.html");
+      };
+    </script>
   </body>
 </html>

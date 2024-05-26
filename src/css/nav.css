@@ -1,10 +1,16 @@
-.Nav {
-}
-
-ul {
-  list-style: none;
+nav {
+  background-color: white;
+  box-shadow: 0 0 5px;
+  display: flex;
+  padding: 20px 50px;
+  justify-content: space-between;
 }
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+#HomeButton:hover {
+  cursor: pointer;
 }
