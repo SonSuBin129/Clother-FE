@@ -1,3 +1,3 @@
 document.querySelector("#linkButton").onclick = function () {
-  window.location.replace("today.html");
+  window.location.replace("introForm.html");
 };

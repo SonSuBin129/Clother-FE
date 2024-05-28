@@ -1,0 +1,24 @@
+#macImage {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58%;
+  object-fit: contain;
+}
+
+.clotherDesign {
+  position: absolute;
+  width: 65%;
+  object-fit: contain;
+}
+
+.clotherDesign#top {
+  left: 10px;
+  top: 30px;
+}
+
+.clotherDesign#bottom {
+  right: 10px;
+  bottom: 10%;
+}
