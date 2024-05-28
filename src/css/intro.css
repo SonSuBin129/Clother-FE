@@ -22,3 +22,19 @@
   right: 10px;
   bottom: 10%;
 }
+
+#gotoIntroButton {
+  position: absolute;
+  bottom: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: black;
+  color: #fbfbfb;
+
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
