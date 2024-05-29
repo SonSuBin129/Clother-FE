@@ -2,20 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- 폰트 디폴트 세팅값 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 개별 폰트 추가 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Nav</title>
     <link rel="stylesheet" href="./src/css/nav.css" />
   </head>
   <body>
     <nav>
-      <div>Clother(아이콘 자리)</div>
-      <div><a href="today.html">today</a></div>
-      <div><a href="tomorrow.html">tomorrow</a></div>
-      <button id="HomeButton">Home</button>
+      <div id="logo">
+        <img id="gotoIntro" src="./src/img/clotherNav.png" />
+      </div>
+      <div class="selectDate">
+        <div id="todayNav">today's</div>
+        <div id="tomorrowNav">tomorrow's</div>
+      </div>
     </nav>
-    <script>
-      document.querySelector("#HomeButton").onclick = function () {
-        window.location.replace("index.html");
-      };
-    </script>
+
+    <!-- js 부분 -->
+    <script type="text/javascript" src="./src/js/nav.js"></script>
   </body>
 </html>
