@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
   align-items: center;
 }
 
@@ -40,6 +41,7 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 
   background-color: white;
@@ -52,6 +54,22 @@
   font-weight: bold;
   font-size: 25px;
   color: #71747b;
+}
+
+#formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+}
+
+.formItem {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.formItemTitle {
+  font-size: 23px;
 }
 
 #readyButton {

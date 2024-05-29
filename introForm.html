@@ -24,7 +24,45 @@
         <div id="formLogo">Clother</div>
         <div id="form">
           <div id="formExplain">코디 추천을 위해 정보를 입력해주세요</div>
-          <div id="formContent"></div>
+          <div id="formContent">
+            <div class="formItem" id="gender">
+              <div class="formItemTitle">성별</div>
+              <input type="radio" id="female" name="gender" value="female" />
+              여성
+              <input type="radio" id="male" name="gender" value="male" /> 남성
+            </div>
+
+            <div class="formItem" id="name">
+              <div class="formItemTitle">이름</div>
+              <input type="text" id="nameInput" name="name" />
+            </div>
+
+            <div class="formItem" id="style">
+              <div class="formItemTitle">스타일</div>
+
+              <input type="checkbox" id="casual" name="style" value="casual" />
+              캐주얼
+
+              <input type="checkbox" id="chic" name="style" value="chic" /> 시크
+
+              <input type="checkbox" id="sporty" name="style" value="sporty" />
+              스포티
+
+              <input type="checkbox" id="street" name="style" value="street" />
+              스트릿
+
+              <input type="checkbox" id="retro" name="style" value="retro" />
+              레트로
+
+              <input
+                type="checkbox"
+                id="business"
+                name="style"
+                value="business"
+              />
+              비즈니스 캐주얼
+            </div>
+          </div>
           <button id="readyButton">준비 완료</button>
         </div>
       </div>
