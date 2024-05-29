@@ -37,3 +37,8 @@
   width: 150px;
   height: 40px;
 }
+
+#readyButton:hover {
+  cursor: pointer;
+  opacity: 80%;
+}

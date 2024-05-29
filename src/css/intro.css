@@ -38,3 +38,8 @@
   font-weight: bold;
   font-size: 25px;
 }
+
+#gotoIntroButton:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
