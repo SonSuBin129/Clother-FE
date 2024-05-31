@@ -14,3 +14,7 @@ input[type="checkbox"] {
   cursor: pointer;
   accent-color: black;
 }
+
+li {
+  list-style: none;
+}

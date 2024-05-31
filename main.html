@@ -14,15 +14,42 @@
     <link href="./src/css/style.css" rel="stylesheet" type="text/css" />
     <link href="./src/css/main.css" rel="stylesheet" type="text/css" />
     <link href="./src/css/mainCodimap.css" rel="stylesheet" type="text/css" />
+    <link href="./src/css/mainButton.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="app">
       <div id="navbar"></div>
       <div id="contents">
+        <!-- 날씨 -->
         <div id="weather"></div>
+
+        <!-- 코디맵 -->
         <div id="codimap">
           <div id="sayUser"></div>
+          <div id="codimapContents">
+            <div class="codiGroup">
+              <div class="codiItem" id="hot">
+                <div class="img"></div>
+                <div class="Button" id="hot">
+                  <div>🥵</div>
+                  <div>더위를 많이타요</div>
+                </div>
+              </div>
+              <div class="codiItem" id="normal">
+                <div class="img"></div>
+              </div>
+              <div class="codiItem" id="cold">
+                <div class="img"></div>
+                <div class="Button" id="cold">
+                  <div>🥶</div>
+                  <div>추위를 많이타요</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- 코디숍 -->
         <div id="codishop"></div>
       </div>
 
@@ -36,5 +63,6 @@
     ></script>
     <script type="text/javascript" src="./src/js/main.js"></script>
     <script type="text/javascript" src="./src/js/elementLoad.js"></script>
+    <script type="text/javascript" src="./src/js/mainCodimapSlider.js"></script>
   </body>
 </html>

@@ -1,0 +1,26 @@
+.Button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 9px 20px;
+  gap: 12px;
+
+  height: 25px;
+  width: fit-content;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: white;
+}
+
+.Button#hot {
+  background: #fca2a2;
+}
+
+.Button#cold {
+  background: #8ba4ff;
+}
