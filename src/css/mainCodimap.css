@@ -1,0 +1,20 @@
+#sayUser {
+  height: 200px;
+
+  background: conic-gradient(
+    from 60deg at 50% 50%,
+    #ffffff 0deg,
+    #ffd9de 64.8deg,
+    #cfe3ff 163.1deg,
+    #ffffff 246.39deg,
+    #ffffff 360deg
+  );
+
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
