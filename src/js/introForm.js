@@ -1,12 +1,16 @@
-//위치 가져오기 callback 함수
+// 위치 정보를 가져왔는지 여부를 나타내는 플래그
+let locationRetrieved = false;
+
 function onGeoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
   console.log(lat, lon);
+  locationRetrieved = true; // 위치 정보를 성공적으로 가져왔음
 }
 
 function onGeoError() {
   alert("Can't find you.");
+  locationRetrieved = false; // 위치 정보를 가져오지 못함
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -24,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
   } else {
     alert("Geolocation을 지원하지 않는 브라우저입니다.");
+    locationRetrieved = false; // Geolocation을 지원하지 않음
   }
 
   // 성별 checkboxes: 한개만 선택 가능하게 함.
@@ -54,6 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   readyButton.addEventListener("click", function () {
+    // 위치 정보를 가져왔는지 확인
+    if (!locationRetrieved) {
+      alert("위치 정보를 가져오지 못했습니다. 위치 정보를 활성화해주세요.");
+      return;
+    }
+
     // 성별 받아오기
     let selectedGender = null;
     genderCheckboxes.forEach((checkbox) => {
