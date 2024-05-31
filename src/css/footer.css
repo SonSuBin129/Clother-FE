@@ -1,0 +1,49 @@
+footer {
+  background-color: black;
+  padding: 150px 150px;
+
+  display: flex;
+  justify-content: flex-start;
+  gap: 200px;
+
+  color: #fbfbfb;
+  font-family: "Roboto", sans-serif;
+}
+
+#serviceExplain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+#serviceExplain #explain {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#serviceExplain img {
+  object-fit: none;
+}
+
+/* 개발자 소개 부분 */
+#serviceDeveloper {
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  font-size: 22px;
+}
+
+#serviceDeveloper #university {
+  font-weight: bold;
+}
+
+#serviceDeveloper #name {
+  font-weight: 400;
+
+  display: flex;
+  gap: 30px;
+}
