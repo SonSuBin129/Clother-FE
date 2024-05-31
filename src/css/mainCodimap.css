@@ -20,8 +20,10 @@
 }
 
 #codimapContents {
+  height: calc(100% - 200px); /* sayUser의 높이(200px)를 뺀 값 */
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .codiGroup {
