@@ -26,7 +26,7 @@
   font-family: "Righteous", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 70px;
+  font-size: 80px;
 
   display: flex;
   align-items: center;
@@ -37,11 +37,12 @@
   flex-grow: 0;
 
   width: 60%;
-  padding: 60px 0px;
+  padding: 70px 0px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10%;
   align-items: center;
 
   background-color: white;
@@ -52,7 +53,7 @@
 #formExplain {
   font-family: "Inter", sans-serif;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
   color: #71747b;
 }
 
@@ -60,29 +61,100 @@
   display: flex;
   flex-direction: column;
   gap: 65px;
+  width: 65%;
 }
 
 .formItem {
   font-family: "Inter", sans-serif;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .formItemTitle {
-  font-size: 23px;
+  font-size: 28px;
 }
 
+.formItemContent {
+  margin-left: 3px;
+}
+
+/* 성별 form 부분 */
+#gender .formItemContent {
+  display: flex;
+  justify-content: flex-start;
+  gap: 50px;
+}
+
+#gender .formItemContent div {
+  display: flex;
+  gap: 20px;
+}
+
+#gender .formItemContent div input {
+  align-self: center;
+}
+
+/* 이름 form 부분 */
+#name .formItemContent input {
+  width: 300px;
+  height: 35px;
+  font-size: 15px;
+  padding-left: 10px;
+
+  border-radius: 5px;
+  border: 1px solid #979797;
+}
+
+#name .formItemContent input::placeholder {
+  font-size: 12px;
+  color: #bdbdbd;
+}
+
+/* 스타일 form 부분 */
+#style .formItemTitle {
+  display: flex;
+  gap: 20px;
+}
+
+#style .formItemTitle #explain {
+  font-size: 13px;
+  color: #71747b;
+  align-self: center;
+}
+
+#style .formItemContent {
+  margin-top: 5px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 10px;
+}
+
+#style .formItemContent div {
+  display: flex;
+  gap: 15px;
+}
+
+#style .formItemContent div input {
+  align-self: center;
+}
+
+/* 준비 완료 버튼 부분 */
 #readyButton {
   font-family: "Inter", sans-serif;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 23px;
 
   border-radius: 50px;
   background-color: black;
   color: #fbfbfb;
 
-  width: 150px;
-  height: 40px;
+  width: 170px;
+  height: 50px;
+  margin-top: 30px;
 }
 
 #readyButton:hover {

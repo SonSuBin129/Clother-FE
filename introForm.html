@@ -25,42 +25,103 @@
         <div id="form">
           <div id="formExplain">코디 추천을 위해 정보를 입력해주세요</div>
           <div id="formContent">
+            <!-- 성별 선택 -->
             <div class="formItem" id="gender">
               <div class="formItemTitle">성별</div>
-              <input type="radio" id="female" name="gender" value="female" />
-              여성
-              <input type="radio" id="male" name="gender" value="male" /> 남성
+              <div class="formItemContent">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="female"
+                    name="gender"
+                    value="female"
+                  />여성
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="male"
+                    name="gender"
+                    value="male"
+                  />남성
+                </div>
+              </div>
             </div>
 
+            <!-- 이름 입력 -->
             <div class="formItem" id="name">
               <div class="formItemTitle">이름</div>
-              <input type="text" id="nameInput" name="name" />
+              <div class="formItemContent">
+                <input
+                  type="text"
+                  id="nameInput"
+                  name="name"
+                  placeholder="뭐라고 불러드릴까요?"
+                />
+              </div>
             </div>
 
+            <!-- 스타일 입력 -->
             <div class="formItem" id="style">
-              <div class="formItemTitle">스타일</div>
+              <div class="formItemTitle">
+                <div>원하는 스타일</div>
+                <div id="explain">최대 3개</div>
+              </div>
+              <div class="formItemContent">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="casual"
+                    name="style"
+                    value="casual"
+                  />캐주얼
+                </div>
 
-              <input type="checkbox" id="casual" name="style" value="casual" />
-              캐주얼
+                <div>
+                  <input
+                    type="checkbox"
+                    id="chic"
+                    name="style"
+                    value="chic"
+                  />시크
+                </div>
 
-              <input type="checkbox" id="chic" name="style" value="chic" /> 시크
+                <div>
+                  <input
+                    type="checkbox"
+                    id="sporty"
+                    name="style"
+                    value="sporty"
+                  />스포티
+                </div>
 
-              <input type="checkbox" id="sporty" name="style" value="sporty" />
-              스포티
+                <div>
+                  <input
+                    type="checkbox"
+                    id="street"
+                    name="style"
+                    value="street"
+                  />스트릿
+                </div>
 
-              <input type="checkbox" id="street" name="style" value="street" />
-              스트릿
+                <div>
+                  <input
+                    type="checkbox"
+                    id="retro"
+                    name="style"
+                    value="retro"
+                  />레트로
+                </div>
 
-              <input type="checkbox" id="retro" name="style" value="retro" />
-              레트로
-
-              <input
-                type="checkbox"
-                id="business"
-                name="style"
-                value="business"
-              />
-              비즈니스 캐주얼
+                <div>
+                  <input
+                    type="checkbox"
+                    id="business"
+                    name="style"
+                    value="business"
+                  />비즈니스 캐주얼
+                </div>
+              </div>
             </div>
           </div>
           <button id="readyButton">준비 완료</button>
