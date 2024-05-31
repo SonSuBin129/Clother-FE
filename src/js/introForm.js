@@ -73,6 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    //성별 선택 안 했을때 알림창
+    if (selectedGender === null) {
+      alert("성별을 선택해야 합니다.");
+      return;
+    }
+
     // 사용자가 만약 이름을 입력하지 않았다면, "사용자"로 입력
     let name = nameInput.value.trim();
     if (name === "") {
