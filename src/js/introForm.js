@@ -1,3 +1,14 @@
+//날
+function onGeoOk(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  console.log(lat, lon);
+}
+
+function onGeoError() {
+  alert("Can't find you.");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const genderCheckboxes = document.querySelectorAll(
     '#gender input[type="checkbox"]'
@@ -5,6 +16,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const styleCheckboxes = document.querySelectorAll(
     '#style input[type="checkbox"]'
   );
+  const nameInput = document.querySelector("#nameInput");
+  const readyButton = document.querySelector("#readyButton");
+
+  // Geolocation API 사용
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+  } else {
+    alert("Geolocation을 지원하지 않는 브라우저입니다.");
+  }
 
   // 성별 checkboxes: 한개만 선택 가능하게 함.
   genderCheckboxes.forEach((checkbox) => {
