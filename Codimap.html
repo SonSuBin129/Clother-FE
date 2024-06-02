@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- 폰트 디폴트 세팅값 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 개별 폰트 추가 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Codimap</title>
+    <link href="./src/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="./src/css/mainButton.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./src/css/mainCodimap.css" type="text/css" />
+  </head>
+  <body>
+    <div id="sayUser"></div>
+    <div id="codimapContents">
+      <img src="./src/img/left_arrow.png" class="controller" id="prev" />
+      <div id="sliderShow">
+        <div class="codimapSlider">
+          <div class="codiGroup">
+            <div class="codiItem" id="hot">
+              <div class="img">11111</div>
+              <div class="Button" id="hot">
+                <div>🥵</div>
+                <div>더위를 많이타요</div>
+              </div>
+            </div>
+            <div class="codiItem" id="normal">
+              <div class="img"></div>
+            </div>
+            <div class="codiItem" id="cold">
+              <div class="img"></div>
+              <div class="Button" id="cold">
+                <div>🥶</div>
+                <div>추위를 많이타요</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="codiGroup">
+            <div class="codiItem" id="hot">
+              <div class="img">22222</div>
+              <div class="Button" id="hot">
+                <div>🥵</div>
+                <div>더위를 많이타요</div>
+              </div>
+            </div>
+            <div class="codiItem" id="normal">
+              <div class="img"></div>
+            </div>
+            <div class="codiItem" id="cold">
+              <div class="img"></div>
+              <div class="Button" id="cold">
+                <div>🥶</div>
+                <div>추위를 많이타요</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="codiGroup">
+            <div class="codiItem" id="hot">
+              <div class="img">3333</div>
+              <div class="Button" id="hot">
+                <div>🥵</div>
+                <div>더위를 많이타요</div>
+              </div>
+            </div>
+            <div class="codiItem" id="normal">
+              <div class="img"></div>
+            </div>
+            <div class="codiItem" id="cold">
+              <div class="img"></div>
+              <div class="Button" id="cold">
+                <div>🥶</div>
+                <div>추위를 많이타요</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <img class="controller" id="next" src="./src/img/right_arrow.png" />
+    </div>
+
+    <!-- js 부분 -->
+    <script type="text/javascript" src="./src/js/mainCodimapSlider.js"></script>
+  </body>
+</html>

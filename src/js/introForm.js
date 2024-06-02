@@ -4,8 +4,22 @@ let locationRetrieved = false;
 function onGeoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
-  console.log(lat, lon);
+  localStorage.setItem("latitude", lat);
+  localStorage.setItem("longitude", lon);
   locationRetrieved = true; // 위치 정보를 성공적으로 가져왔음
+
+  //백에 넘겨줄 날짜 20240601 이런식으로 보내주기
+  const date = new Date();
+
+  // 년, 월, 일 가져오기
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+
+  // "YYYYMMDD" 형식으로 변환
+  const formattedDate = `${year}${month}${day}`;
+
+  localStorage.setItem("date", formattedDate);
 }
 
 function onGeoError() {
@@ -99,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Save data to localStorage
     localStorage.setItem("gender", selectedGender);
     localStorage.setItem("name", name);
-    localStorage.setItem("style", JSON.stringify(selectedStyles));
+    localStorage.setItem("concept", JSON.stringify(selectedStyles));
 
     // 메인 페이지로 이동
     window.location.href = "main.html";

@@ -3,5 +3,9 @@ $(function () {
 });
 
 $(function () {
+  $("#codimap").load("Codimap.html");
+});
+
+$(function () {
   $("#footer").load("Footer.html");
 });
