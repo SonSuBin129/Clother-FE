@@ -24,11 +24,11 @@
 #codimap {
   width: 100%;
   height: calc(100vh - 68px);
-  background-color: red;
+  /* background-color: red; */
 }
 
 #codishop {
   width: 100%;
   height: calc(100vh - 68px);
-  background-color: green;
+  /* background-color: green; */
 }
