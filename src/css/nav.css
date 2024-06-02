@@ -35,7 +35,13 @@ nav {
   transform: translateX(-50%);
 }
 
-.selectDate div:hover {
+.NavItem:hover {
   cursor: pointer;
+  color: #67b5fc;
+  opacity: 60%;
+}
+
+.NavItem.active {
+  opacity: 100%;
   color: #67b5fc;
 }

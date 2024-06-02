@@ -7,5 +7,9 @@ $(function () {
 });
 
 $(function () {
+  $("#codishop").load("Codishop.html");
+});
+
+$(function () {
   $("#footer").load("Footer.html");
 });
