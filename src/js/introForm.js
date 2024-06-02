@@ -19,7 +19,18 @@ function onGeoOk(position) {
   // "YYYYMMDD" 형식으로 변환
   const formattedDate = `${year}${month}${day}`;
 
+  // 다음 날짜 계산하기
+  const nextDateObj = new Date(date);
+  nextDateObj.setDate(date.getDate() + 1);
+  const nextYear = nextDateObj.getFullYear();
+  const nextMonth = (nextDateObj.getMonth() + 1).toString().padStart(2, "0");
+  const nextDay = nextDateObj.getDate().toString().padStart(2, "0");
+
+  const nextFormattedDate = `${nextYear}${nextMonth}${nextDay}`;
+
+  // format 오늘날짜, 내일날짜 로컬 스토리지에 저장
   localStorage.setItem("date", formattedDate);
+  localStorage.setItem("nextDate", nextFormattedDate);
 }
 
 function onGeoError() {
