@@ -1,10 +1,21 @@
 document.addEventListener("DOMContentLoaded", async function () {
+  // 이전 NowHours 값 저장
+  let previousNowHours = Number(localStorage.getItem("NowHours"));
+
   // 날씨 API 호출
   // 1. 멘트 가져오기
-  updateWeather();
+  await updateWeather();
 
-  // 날씨 업데이트 주기 설정 (예: 10분마다)
-  setInterval(updateWeather, 10 * 60 * 1000); // 10분마다 업데이트
+  setInterval(checkNowHoursAndUpdate, 60 * 1000); // 1분마다 확인
+
+  async function checkNowHoursAndUpdate() {
+    const currentNowHours = Number(localStorage.getItem("NowHours"));
+    if (currentNowHours !== previousNowHours) {
+      // NowHours가 변경된 경우에만 업데이트
+      await updateWeather();
+      previousNowHours = currentNowHours; // 이전 NowHours 업데이트
+    }
+  }
 });
 
 async function updateWeather() {
@@ -29,11 +40,7 @@ async function updateWeather() {
     const weatherData = await response.json();
 
     // 현재 시간 기반으로 데이터 가져오기(tmp 가져오기)
-
-    // 1. 시간대 구하기
-    const hours = new Date().getHours().toString().padStart(2, "0");
-
-    const timeIndex = Number(hours);
+    const timeIndex = Number(localStorage.getItem("NowHours"));
     const temperature = weatherData[timeIndex].tmp;
     localStorage.setItem("temperature", temperature);
 

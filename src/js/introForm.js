@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
   readyButton.addEventListener("click", function () {
     // 위치 정보를 가져왔는지 확인
     if (!locationRetrieved) {
-      alert("위치 정보를 가져오지 못했습니다. 위치 정보를 활성화해주세요.");
+      alert("위치 정보를 가져오지 못했습니다. 조금만 기다려주세요.");
       return;
     }
 
