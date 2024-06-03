@@ -7,7 +7,14 @@ function onGeoOk(position) {
   localStorage.setItem("latitude", lat);
   localStorage.setItem("longitude", lon);
   locationRetrieved = true; // 위치 정보를 성공적으로 가져왔음
+}
 
+function onGeoError() {
+  alert("Can't find you.");
+  locationRetrieved = false; // 위치 정보를 가져오지 못함
+}
+
+function getDate() {
   //백에 넘겨줄 날짜 20240601 이런식으로 보내주기
   const date = new Date();
 
@@ -33,11 +40,6 @@ function onGeoOk(position) {
   localStorage.setItem("nextDate", nextFormattedDate);
 }
 
-function onGeoError() {
-  alert("Can't find you.");
-  locationRetrieved = false; // 위치 정보를 가져오지 못함
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   const genderCheckboxes = document.querySelectorAll(
     '#gender input[type="checkbox"]'
@@ -55,6 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
     alert("Geolocation을 지원하지 않는 브라우저입니다.");
     locationRetrieved = false; // Geolocation을 지원하지 않음
   }
+
+  getDate();
 
   // 성별 checkboxes: 한개만 선택 가능하게 함.
   genderCheckboxes.forEach((checkbox) => {
