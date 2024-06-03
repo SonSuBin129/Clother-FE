@@ -18,17 +18,14 @@
 #weather {
   width: 100%;
   height: calc(100vh - 68px);
-  background-color: blue;
 }
 
 #codimap {
   width: 100%;
   height: calc(100vh - 68px);
-  /* background-color: red; */
 }
 
 #codishop {
   width: 100%;
   height: calc(100vh - 68px);
-  /* background-color: green; */
 }
