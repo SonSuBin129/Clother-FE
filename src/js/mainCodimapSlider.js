@@ -2,7 +2,8 @@ const userName = localStorage.getItem("name");
 const sayUserElement = document.querySelector("#sayUser");
 
 if (userName && sayUserElement) {
-  sayUserElement.textContent = `Hello, ${userName}!`; // 사용자 환영 메시지 설정
+  const ment = localStorage.getItem("ment");
+  sayUserElement.textContent = `${userName}! ${ment}`; // 사용자 환영 메시지 설정
 }
 
 const prevButton = document.getElementById("prev");
