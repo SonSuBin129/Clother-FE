@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // 날씨 API 호출
   // 1. 멘트 가져오기
-  await updateWeather();
+  updateWeather();
 
   setInterval(checkNowHoursAndUpdate, 60 * 1000); // 1분마다 확인
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const currentNowHours = Number(localStorage.getItem("NowHours"));
     if (currentNowHours !== previousNowHours) {
       // NowHours가 변경된 경우에만 업데이트
-      await updateWeather();
+      updateWeather();
       previousNowHours = currentNowHours; // 이전 NowHours 업데이트
     }
   }
@@ -37,16 +37,19 @@ async function updateWeather() {
       throw new Error(`API 호출 실패: ${response.statusText}`);
     }
 
-    const weatherData = await response.json();
+    const responseData = await response.json();
+    const weatherBanner = responseData.weatherBanner;
+    const weatherData = responseData.weatherData;
+
+    // 날씨 배너
+    localStorage.setItem("weatherBanner", weatherBanner);
+    // 날씨 데이터는 해당 날짜의 24시간 데이터를 가져옴.
+    localStorage.setItem("weatherData", weatherData);
 
     // 현재 시간 기반으로 데이터 가져오기(tmp 가져오기)
     const timeIndex = Number(localStorage.getItem("NowHours"));
     const temperature = weatherData[timeIndex].tmp;
     localStorage.setItem("temperature", temperature);
-
-    const ment = "오늘 날씨가 어쩌구 저쩌구";
-    localStorage.setItem("ment", ment);
-    console.log("ment", localStorage.getItem("ment"));
 
     // HTML 요소 로드
     loadElements();
