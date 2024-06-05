@@ -67,10 +67,6 @@ async function updateWeather() {
 function loadElements() {
   // HTML 요소를 비동기적으로 로드
   $(function () {
-    $("#navbar").load("Nav.html");
-  });
-
-  $(function () {
     $("#weather").load("Weather.html");
   });
 
@@ -80,9 +76,5 @@ function loadElements() {
 
   $(function () {
     $("#codishop").load("Codishop.html");
-  });
-
-  $(function () {
-    $("#footer").load("Footer.html");
   });
 }
