@@ -21,6 +21,19 @@
   align-items: center;
 }
 
+#Loading {
+  height: calc(100% - 200px); /* sayUser의 높이(200px)를 뺀 값 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px 0px 20px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  text-align: center;
+}
+
 #codimapContents {
   height: calc(100% - 200px); /* sayUser의 높이(200px)를 뺀 값 */
   display: flex;

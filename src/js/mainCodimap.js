@@ -1,3 +1,8 @@
+const LoadingElement = document.querySelector("#Loading");
+const codimapContents = document.querySelector("#codimapContents");
+
+codimapContents.style.display = "none";
+LoadingElement.style.display = "flex";
 settingSayUser();
 loadCodimapContent();
 
@@ -22,10 +27,9 @@ async function loadCodimapContent() {
     console.error("필수 정보가 없습니다.");
     return;
   }
-
   const conceptParams = concept.map((c) => `concept=${c}`).join("&");
   const apiUrl = `http://ec2-43-202-60-140.ap-northeast-2.compute.amazonaws.com:8080/clother/codimap?gender=${gender}&${conceptParams}&temperature=${temperature}`;
-
+  console.log(apiUrl);
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
@@ -35,6 +39,8 @@ async function loadCodimapContent() {
 
     updateCodimapContent(codimapData);
     addSliderEvent();
+    codimapContents.style.display = "flex";
+    LoadingElement.style.display = "none";
   } catch (error) {
     console.error("codimapData API 호출 중 오류 발생:", error);
   }
@@ -93,6 +99,7 @@ function updateCodimapContent(data) {
   }
 }
 
+// Slider 추가
 function addSliderEvent() {
   const prevButton = document.getElementById("prev");
   const nextButton = document.getElementById("next");

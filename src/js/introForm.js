@@ -35,8 +35,10 @@ function getDate() {
 
   const nextFormattedDate = `${nextYear}${nextMonth}${nextDay}`;
 
-  // format 오늘날짜, 내일날짜 로컬 스토리지에 저장
+  // format 오늘날짜(todayDate), 내일날짜(nextDate), 서버에 보낼 날짜(date) 로컬 스토리지에 저장
+  // 서버에 보낼 default는 현재 date로 설정
   localStorage.setItem("date", formattedDate);
+  localStorage.setItem("todayDate", formattedDate);
   localStorage.setItem("nextDate", nextFormattedDate);
 }
 
