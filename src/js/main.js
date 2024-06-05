@@ -30,11 +30,6 @@ async function updateWeather() {
   }
 
   try {
-    console.log("지금 호출하는 날짜", date);
-    console.log(
-      "url: ",
-      `http://ec2-43-202-60-140.ap-northeast-2.compute.amazonaws.com:8080/weather?latitude=${latitude}&&longitude=${longitude}&date=${date}`
-    );
     const response = await fetch(
       `http://ec2-43-202-60-140.ap-northeast-2.compute.amazonaws.com:8080/weather?latitude=${latitude}&&longitude=${longitude}&date=${date}`
     );

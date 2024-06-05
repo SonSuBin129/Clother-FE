@@ -11,13 +11,26 @@
   flex-direction: column;
   padding: 84px 101px;
   gap: 100px;
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 #codiExplain {
   font-family: "Inter", sans-serif;
   font-weight: 800;
   font-size: 50px;
+
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+#LoadingExplain {
+  display: flex;
+  padding: 150px 0;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  text-align: center;
 }
 
 #codiImgGroup {
