@@ -4,9 +4,7 @@ const codiImgGroup = document.querySelector("#codiImgGroup");
 codiImgGroup.style.display = "none";
 LoadingExplain.style.display = "flex";
 
-loadCodishopContent();
-
-async function loadCodishopContent() {
+export async function loadCodishopContent() {
   const gender = localStorage.getItem("gender");
   const concept = JSON.parse(localStorage.getItem("concept"));
   const temperature = localStorage.getItem("temperature");
@@ -18,7 +16,6 @@ async function loadCodishopContent() {
 
   const conceptParams = concept.map((c) => `concept=${c}`).join("&");
   const apiUrl = `http://ec2-43-202-60-140.ap-northeast-2.compute.amazonaws.com:8080/clother/codishop?gender=${gender}&${conceptParams}&temperature=${temperature}`;
-  console.log(apiUrl);
 
   try {
     const response = await fetch(apiUrl);
@@ -26,7 +23,6 @@ async function loadCodishopContent() {
       throw new Error(`Codishop API 호출 실패: ${response.statusText}`);
     }
     const codishopData = await response.json();
-    console.log("Codishop data:", codishopData);
 
     updateCodishopContent(codishopData);
     codiImgGroup.style.display = "flex";

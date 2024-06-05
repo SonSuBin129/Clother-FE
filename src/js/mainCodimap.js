@@ -1,3 +1,5 @@
+import { loadCodishopContent } from "./mainCodishop";
+
 const LoadingElement = document.querySelector("#Loading");
 const codimapContents = document.querySelector("#codimapContents");
 
@@ -29,7 +31,7 @@ async function loadCodimapContent() {
   }
   const conceptParams = concept.map((c) => `concept=${c}`).join("&");
   const apiUrl = `http://ec2-43-202-60-140.ap-northeast-2.compute.amazonaws.com:8080/clother/codimap?gender=${gender}&${conceptParams}&temperature=${temperature}`;
-  console.log(apiUrl);
+
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
@@ -41,6 +43,7 @@ async function loadCodimapContent() {
     addSliderEvent();
     codimapContents.style.display = "flex";
     LoadingElement.style.display = "none";
+    loadCodishopContent();
   } catch (error) {
     console.error("codimapData API 호출 중 오류 발생:", error);
   }
