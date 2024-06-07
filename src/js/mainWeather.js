@@ -5,7 +5,7 @@ function updateWeatherInfo() {
 
   // 현재 시간 업데이트
   document.querySelector("#current-time").textContent =
-    localStorage.getItem("NowHours") + ":00";
+    localStorage.getItem("currentTime");
 
   // 현재 온도 업데이트
   document.querySelector("#current-temp").textContent =
