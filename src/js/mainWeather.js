@@ -43,33 +43,47 @@ function updateWeatherInfo() {
   // 시간대별 날씨 업데이트
   const hourlyForecastContainer = document.querySelector("#hourly-forecast");
   hourlyForecastContainer.innerHTML = ""; // 기존 내용을 지움
+  const timeIndex = Number(localStorage.getItem("NowHours"));
 
-  for (let i = 0; i < 24; i++) {
+  for (let i = timeIndex; i < timeIndex + 24; i++) {
     const tmp = localStorage.getItem("hourlytmp" + i);
-    const sky = localStorage.getItem("hourlysky" + i);
-    const hour = localStorage.getItem("hours");
-    const hourly = ("0" + (hour + i)).slice(-2);
+    let sky = localStorage.getItem("hourlysky" + i);
+    const hour = Number(localStorage.getItem("hours"));
+    const hourly = (hour + i) % 24;
+    
+    // 밤에는 달 아이콘
+    if ((hourly >= 0 && hourly <= 6) || (hourly >= 18 && hourly <= 23)) {
+        sky = 2;
+    }
+    
     const forecastDiv = document.createElement("div");
     forecastDiv.classList.add("hourly-forecast-item");
     forecastDiv.innerHTML = `
       <div>${hourly}시</div>
-      <img src="${getSkyIcon(sky)}" alt="${hour}시 날씨">
+      <img src="${getSkyIcon(sky)}" alt="${hourly}시 날씨">
       <div>${tmp}°C</div>
     `;
     hourlyForecastContainer.appendChild(forecastDiv);
-  }
+}
 }
 
 function getSkyIcon(sky) {
   switch (sky) {
     case 1:
+      console.log(sky)
       return "./src/img/clear.svg";
+    case 2:
+      console.log(sky)
+      return "./src/img/moon.svg";
     case 3:
+      console.log(sky)
       return "./src/img/cloudy.svg";
     case 4:
+      console.log(sky)
       return "./src/img/cloudy.svg";
     default:
-      return "./src/img/clear.svg";
+      console.log(sky)
+      return "./src/img/cloudy.svg";
   }
 }
 

@@ -1,0 +1,258 @@
+/* #temperature {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+} */
+
+#mainWeather {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 100px;
+  gap: 70px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.search-container img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.search-container input {
+  border: none;
+  background: transparent;
+  color: black;
+  font-size: 1em;
+  width: 100%;
+  outline: none;
+}
+.current-weather {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  height: 300px;
+
+  padding: 20px 20px 30px 20px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
+.hourly-weather {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 820px;
+  height: 125px;
+  padding: 20px 30px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#location-name {
+  margin: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#current-time {
+  font-weight: bold;
+}
+
+#current-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.current-weather .temp {
+  font-size: 2.5em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.current-weather .temp img {
+  width: 60px;
+  height: 60px;
+}
+
+.current-weather .forecast {
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.current-weather .summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.current-weather .summary span {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.current-weather .forecast div {
+  display: flex;
+  align-items: center;
+}
+
+.current-weather .forecast img {
+  width: 35px;
+  height: 35px;
+}
+
+.current-weather .temperature-range {
+  margin-left: 20px;
+  font-size: 1.2em;
+}
+
+.current-weather #temperature-range span {
+  display: flex;
+  align-items: center;
+}
+
+.hourly-forecast-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hourly-forecast {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 30px;
+}
+
+.hourly-forecast-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+}
+
+.hourly-forecast-item div {
+  text-align: center;
+}
+
+.hourly-forecast-item img {
+  width: 35px;
+  height: 35px;
+}
+
+/* .navigation {
+  position: relative;
+  width: 100%;
+} */
+
+/* .nav-button {
+  position: absolute;
+  bottom: 20px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  z-index: 10;
+} */
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+#current-temp {
+  font-weight: bold;
+}
+
+#morning-icon {
+  width: 35px;
+  height: 35px;
+}
+
+#afternoon-icon {
+  width: 35px;
+  height: 35px;
+}
+
+#morning-precipitation {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#afternoon-precipitation {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#temperature-range {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #123, #111);
+  background-size: 100%, 40%, 50%, 20%, cover;
+  background-repeat: no-repeat;
+  animation: animater 20s 4s ease-out infinite alternate;
+  min-height: 100vh;
+}
+
+.snowflake {
+  --size: 1vw;
+  width: var(--size);
+  height: var(--size);
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -5vh;
+}
+
+@keyframes snowfall {
+  0% {
+      transform: translateY(-5vh);
+  }
+  100% {
+      transform: translateY(110vh);
+  }
+}

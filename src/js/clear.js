@@ -28,9 +28,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     `;
-
-    const styleSheet = document.createElement("style");
-    styleSheet.type = "text/css";
-    styleSheet.innerText = style;
-    document.head.appendChild(styleSheet);
 });

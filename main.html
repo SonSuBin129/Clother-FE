@@ -48,5 +48,34 @@
     <script type="text/javascript" src="./src/js/defaultElement.js"></script>
     <script type="text/javascript" src="./src/js/main.js"></script>
     <script type="text/javascript" src="./src/js/getHours.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentState = Number(localStorage.getItem("currentSky"));
+        let htmlFile = "";
+        console.log(currentState)
+
+        switch (currentState) {
+          case 1:
+            htmlFile = "./WeatherClear.html";
+            break;
+          case 2:
+            htmlFile = "./WeatherNight.html";
+            break;
+          case 3:
+            htmlFile = "./WeatherCloudy.html";
+            break;
+          case 4:
+            htmlFile = "./WeatherCloudy.html";
+            break;
+          default:
+            htmlFile = "./WeatherClear.html";
+            return;
+        }
+
+        if (htmlFile) {
+          $("#weather").load(htmlFile);
+        }
+      });
+    </script>
   </body>
 </html>
