@@ -35,22 +35,7 @@ async function getAddress() {
 
     const result = data.results[0];
 
-    const addressComponents = result.address_components;
-
-    const adminArea =
-      addressComponents.find((comp) =>
-        comp.types.includes("administrative_area_level_1")
-      )?.long_name || "";
-    const locality =
-      addressComponents.find((comp) =>
-        comp.types.includes("sublocality_level_1")
-      )?.long_name || "";
-    const sublocality =
-      addressComponents.find((comp) =>
-        comp.types.includes("sublocality_level_2")
-      )?.long_name || "";
-
-    const location = `${adminArea} ${locality} ${sublocality}`.trim();
+    const location = result.formatted_address;
 
     //위치정보 저장
     localStorage.setItem("location", location);
@@ -71,9 +56,10 @@ async function updateWeather() {
   }
 
   try {
-    const response = await fetch(
-      `http://ec2-43-202-60-140.ap-northeast-2.compute.amazonaws.com:8080/weather?latitude=${latitude}&&longitude=${longitude}&date=${date}`
-    );
+    const apiUrl = `http://ec2-43-202-60-140.ap-northeast-2.compute.amazonaws.com:8080/weather?latitude=${latitude}&longitude=${longitude}&date=${date}`;
+    console.log(apiUrl);
+    const response = await fetch(apiUrl);
+
     if (!response.ok) {
       throw new Error(`API 호출 실패: ${response.statusText}`);
     }
