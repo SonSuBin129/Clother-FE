@@ -2,9 +2,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   // 이전 NowHours 값 저장
   let previousNowHours = Number(localStorage.getItem("NowHours"));
 
+  //위치 가져오기
+  getAddress();
 
   // 날씨 API 호출
-  // 1. 멘트 가져오기
   updateWeather();
 
   setInterval(checkNowHoursAndUpdate, 60 * 1000); // 1분마다 확인
@@ -18,6 +19,45 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 });
+
+//위치(위도, 경도) -> 주소 가져오기
+async function getAddress() {
+  const latitude = localStorage.getItem("latitude");
+  const longitude = localStorage.getItem("longitude");
+
+  const API_KEY = "AIzaSyBiQlmQrR2mnHOv-W_6TJbPmg0NTrtlKSI";
+
+  const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${API_KEY}&language=ko`;
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    const result = data.results[0];
+
+    const addressComponents = result.address_components;
+
+    const adminArea =
+      addressComponents.find((comp) =>
+        comp.types.includes("administrative_area_level_1")
+      )?.long_name || "";
+    const locality =
+      addressComponents.find((comp) =>
+        comp.types.includes("sublocality_level_1")
+      )?.long_name || "";
+    const sublocality =
+      addressComponents.find((comp) =>
+        comp.types.includes("sublocality_level_2")
+      )?.long_name || "";
+
+    const location = `${adminArea} ${locality} ${sublocality}`.trim();
+
+    //위치정보 저장
+    localStorage.setItem("location", location);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 async function updateWeather() {
   // 위치와 날짜 정보 가져오기
@@ -51,7 +91,7 @@ async function updateWeather() {
     const timeIndex = Number(localStorage.getItem("NowHours"));
     const temperature = weatherData[timeIndex].tmp;
     localStorage.setItem("temperature", temperature);
-    
+
     // 현재 날씨 아이콘 업데이트
     const currentsky = weatherData[timeIndex].sky;
     localStorage.setItem("currentSky", currentsky);
@@ -72,12 +112,12 @@ async function updateWeather() {
 
     // 시간대별 날씨 업데이트
     weatherData.forEach((item, index) => {
-      localStorage.setItem("hourlytmp"+index, item.tmp);
-      localStorage.setItem("hourlysky"+index, item.sky);
+      localStorage.setItem("hourlytmp" + index, item.tmp);
+      localStorage.setItem("hourlysky" + index, item.sky);
     });
 
     // 온도 범위 업데이트
-    const temperatures = weatherData.map(item => item.tmp);
+    const temperatures = weatherData.map((item) => item.tmp);
     const tmx = Math.max(...temperatures);
     const tmn = Math.min(...temperatures);
     localStorage.setItem("tmx", tmx);
