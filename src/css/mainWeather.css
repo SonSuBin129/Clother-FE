@@ -1,16 +1,16 @@
-#temperature {
+/* #temperature {
   font-weight: bold;
   font-size: 30px;
   text-align: center;
-}
+} */
 
-body {
+#mainWeather {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-  background: #f0f0f0;
-  flex-direction: column;
+  gap: 55px;
 }
 
 .search-container {
@@ -19,9 +19,9 @@ body {
   background: white;
   border-radius: 30px;
   padding: 10px 20px;
-  width: 300px;
-  margin-bottom: 20px;
+  width: 400px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
 .search-container img {
@@ -42,20 +42,31 @@ body {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  padding: 20px;
+  width: 600px;
+  height: 300px;
+
+  padding: 20px 20px 30px 20px;
   text-align: center;
-  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
 }
 
 .hourly-weather {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 710px;
-  padding: 30px;
+  width: 800px;
+  padding: 20px 30px;
   text-align: center;
-  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 #location-name {
@@ -69,7 +80,6 @@ body {
 }
 
 #current-icon {
-  margin: 5px 0;
   width: 70px;
   height: 70px;
 }
@@ -77,7 +87,6 @@ body {
 .current-weather .temp {
   font-size: 2.5em;
   font-weight: bold;
-  margin: 10px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,8 +100,10 @@ body {
 .current-weather .forecast {
   font-size: 1.2em;
   font-weight: bold;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 40px;
 }
 
 .current-weather .summary span {
@@ -112,6 +123,7 @@ body {
 }
 
 .current-weather .temperature-range {
+  margin-left: 20px;
   font-size: 1.2em;
 }
 
@@ -143,26 +155,31 @@ body {
   margin-right: 15px;
 }
 
-.navigation {
+/* .navigation {
   position: relative;
   width: 100%;
-}
+} */
 
-.nav-button {
+/* .nav-button {
   position: absolute;
   bottom: 20px;
   cursor: pointer;
   width: 30px;
   height: 30px;
   z-index: 10;
+} */
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  width: 30px;
+  height: 30px;
 }
 
 .prev {
-  left: -25px;
 }
 
 .next {
-  right: -25px;
 }
 
 #current-temp {

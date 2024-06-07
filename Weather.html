@@ -12,50 +12,94 @@
       rel="stylesheet"
     />
 
-    <title>Codishop</title>
+    <title>Weather</title>
     <link href="./src/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./src/css/mainWeather.css" type="text/css" />
   </head>
   <body>
-    <form class="search-container" action="javascript:void(0);" onsubmit="fetchWeather()">
-      <img src="./src/img/search.png" alt="Search Icon">
-      <input type="text" id="location-input" placeholder="위치를 입력해주세요">
-    </form>
+    <div id="mainWeather">
+      <form
+        class="search-container"
+        action="javascript:void(0);"
+        onsubmit="fetchWeather()"
+      >
+        <img src="./src/img/search.png" alt="Search Icon" />
+        <input
+          type="text"
+          id="location-input"
+          placeholder="원하는 지역을 입력해주세요."
+        />
+      </form>
 
-  <div class="current-weather">
-      <h2 id="location-name">서울특별시</h2>
-      <div id="current-time"></div>
-      <div class="temp">
-          <img id="current-icon" src="./src/img/clear.svg" alt="현재 날씨 아이콘">
+      <div class="current-weather">
+        <div class="Location">
+          <h2 id="location-name">서울특별시</h2>
+          <div id="current-time"></div>
+        </div>
+        <div class="temp">
+          <img
+            id="current-icon"
+            src="./src/img/clear.svg"
+            alt="현재 날씨 아이콘"
+          />
           <span id="current-temp"></span>
-      </div>
-      <div class="forecast">
+        </div>
+        <div class="forecast">
           <div class="summary">
-              <img id="morning-icon" src="./src/img/clear.svg" alt="오전 날씨">
-              <span>오전<span id="morning-precipitation">30%</span></span>
+            <img id="morning-icon" src="./src/img/clear.svg" alt="오전 날씨" />
+            <span>오전<span id="morning-precipitation">30%</span></span>
           </div>
           <div class="summary">
-              <img id="afternoon-icon" src="./src/img/cloudy.svg" alt="오후 날씨">
-              <span>오후<span id="afternoon-precipitation">20%</span></span>
+            <img
+              id="afternoon-icon"
+              src="./src/img/cloudy.svg"
+              alt="오후 날씨"
+            />
+            <span>오후<span id="afternoon-precipitation">20%</span></span>
           </div>
           <div class="temperature-range">
-              <span id="temperature-range"><span style="color:red" id="max-temp"></span></span>
+            <span id="temperature-range"
+              ><span style="color: red" id="max-temp"></span
+            ></span>
           </div>
+        </div>
       </div>
-      
-  </div>
 
-  <div class="hourly-weather">
-      <div class="hourly-forecast-container">
+      <div class="hourly-weather">
+        <img
+          src="./src/img/left_arrow.png"
+          id="prev-btn"
+          onclick="prevPage()"
+          class="nav-button prev"
+        />
+        <div class="hourly-forecast-container">
           <div class="hourly-forecast" id="hourly-forecast">
             <!-- 시간대별 데이터 동적 추가 -->
           </div>
+        </div>
+        <img
+          src="./src/img/right_arrow.png"
+          id="next-btn"
+          onclick="nextPage()"
+          class="nav-button next"
+        />
+        <!-- <div class="navigation">
+          <img
+            src="./src/img/left_arrow.png"
+            id="prev-btn"
+            onclick="prevPage()"
+            class="nav-button prev"
+          />
+          <img
+            src="./src/img/right_arrow.png"
+            id="next-btn"
+            onclick="nextPage()"
+            class="nav-button next"
+          />
+        </div> -->
       </div>
-      <div class="navigation">
-          <img src="./src/img/left_arrow.png" id="prev-btn" onclick="prevPage()" class="nav-button prev">
-          <img src="./src/img/right_arrow.png" id="next-btn" onclick="nextPage()" class="nav-button next">
-      </div>
-  </div>
+    </div>
+
     <!-- js 부분 -->
     <script type="type/javascript" src="./src/js/mainWeather.js"></script>
     <script>
@@ -63,35 +107,40 @@
       const pages = 2;
 
       function updateNavigationButtons() {
-          document.getElementById('prev-btn').style.display = currentPage === 0 ? 'none' : 'block';
-          document.getElementById('next-btn').style.display = currentPage === pages - 1 ? 'none' : 'block';
+        document.getElementById("prev-btn").style.display =
+          currentPage === 0 ? "none" : "block";
+        document.getElementById("next-btn").style.display =
+          currentPage === pages - 1 ? "none" : "block";
       }
 
       function showPage(page) {
-          const forecastWidth = document.querySelector('.hourly-forecast-container').offsetWidth;
-          document.querySelector('.hourly-forecast').style.transform = `translateX(-${page * forecastWidth}px)`;
-          updateNavigationButtons();
+        const forecastWidth = document.querySelector(
+          ".hourly-forecast-container"
+        ).offsetWidth;
+        document.querySelector(
+          ".hourly-forecast"
+        ).style.transform = `translateX(-${page * forecastWidth}px)`;
+        updateNavigationButtons();
       }
 
       function prevPage() {
-          if (currentPage > 0) {
-              currentPage--;
-              showPage(currentPage);
-          }
+        if (currentPage > 0) {
+          currentPage--;
+          showPage(currentPage);
+        }
       }
 
       function nextPage() {
-          if (currentPage < pages - 1) {
-              currentPage++;
-              showPage(currentPage);
-          }
+        if (currentPage < pages - 1) {
+          currentPage++;
+          showPage(currentPage);
+        }
       }
 
-      document.addEventListener('DOMContentLoaded', function() {
-          updateNavigationButtons();
-          showPage(0); // 첫 페이지를 보여줌
+      document.addEventListener("DOMContentLoaded", function () {
+        updateNavigationButtons();
+        showPage(0); // 첫 페이지를 보여줌
       });
-  </script>
-  
+    </script>
   </body>
 </html>
