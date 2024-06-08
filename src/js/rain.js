@@ -1,6 +1,7 @@
 const style = `
 
 #mainWeather {
+    width:100%;
     background-image: linear-gradient(to bottom, #1e1e1e, #2e2e2e);
     background-size: 100%, 40%, 50%, 20%, cover;
     background-repeat: no-repeat;
