@@ -12,11 +12,11 @@ function updateWeatherInfo() {
     localStorage.getItem("temperature") + "°C";
 
   // 현재 날씨 아이콘 업데이트
-  const currentSky = localStorage.getItem("currentSky");
+  const currentSky = Number(localStorage.getItem("currentSky"));
   document.querySelector("#current-icon").src = getSkyIcon(currentSky);
 
   // 오전 날씨 업데이트
-  const morningSky = localStorage.getItem("morningSky");
+  const morningSky = Number(localStorage.getItem("morningSky"));
   document.querySelector("#morning-icon").src = getSkyIcon(morningSky);
 
   const morningPop = localStorage.getItem("morningPop");
@@ -25,7 +25,7 @@ function updateWeatherInfo() {
   ).textContent = `${morningPop}%`;
 
   // 오후 날씨 업데이트
-  const afternoonSky = localStorage.getItem("afternoonSky");
+  const afternoonSky = Number(localStorage.getItem("afternoonSky"));
   document.querySelector("#afternoon-icon").src = getSkyIcon(afternoonSky);
 
   const afternoonPop = localStorage.getItem("afternoonPop");
@@ -48,12 +48,17 @@ function updateWeatherInfo() {
   for (let i = timeIndex; i < timeIndex + 24; i++) {
     const tmp = localStorage.getItem("hourlytmp" + i);
     let sky = localStorage.getItem("hourlysky" + i);
+    const rain = localStorage.getItem("hourlyrain" + i);
     const hour = Number(localStorage.getItem("hours"));
     const hourly = (hour + i) % 24;
 
     // 밤에는 달 아이콘
     if ((hourly >= 0 && hourly <= 6) || (hourly >= 18 && hourly <= 23)) {
       sky = 2;
+    }
+
+    if (rain > 30) {
+      sky = 0;
     }
 
     const forecastDiv = document.createElement("div");
@@ -69,6 +74,8 @@ function updateWeatherInfo() {
 
 function getSkyIcon(sky) {
   switch (sky) {
+    case 0:
+      return "./src/img/rainy.svg";
     case 1:
       return "./src/img/clear.svg";
     case 2:

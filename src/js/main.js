@@ -97,30 +97,40 @@ async function updateWeather() {
     //현재 시간 기반으로 강수량 가져오기
     const rainy = weatherData[timeIndex].pop;
     localStorage.setItem("rainy", rainy);
-
     // 현재 날씨 아이콘 업데이트
-    const currentsky = weatherData[timeIndex].sky;
+    let currentsky = weatherData[timeIndex].sky;
     if (
       (timeIndex >= 0 && timeIndex <= 6) ||
       (timeIndex >= 18 && timeIndex <= 23)
     ) {
       currentsky = 2;
     }
+
+    if (rainy > 30) {
+      currentsky = 0;
+    }
+
     localStorage.setItem("currentSky", currentsky);
 
     // 오전 날씨 업데이트
-    const morningSky = weatherData[9].sky;
-    localStorage.setItem("morningSky", morningSky);
-
     const morningPop = weatherData[9].pop;
     localStorage.setItem("morningPop", morningPop);
 
-    // 오후 날씨 업데이트
-    const afternoonSky = weatherData[15].sky;
-    localStorage.setItem("afternoonSky", afternoonSky);
+    let morningSky = weatherData[9].sky;
+    if (morningPop > 30) {
+      morningSky = 0;
+    }
+    localStorage.setItem("morningSky", morningSky);
 
+    // 오후 날씨 업데이트
     const afternoonPop = weatherData[15].pop;
     localStorage.setItem("afternoonPop", afternoonPop);
+
+    let afternoonSky = weatherData[15].sky;
+    if (afternoonPop > 30) {
+      afternoonSky = 0;
+    }
+    localStorage.setItem("afternoonSky", afternoonSky);
 
     // 시간대별 날씨 업데이트
     weatherData.forEach((item, index) => {
@@ -130,6 +140,7 @@ async function updateWeather() {
           : item.sky;
       localStorage.setItem("hourlytmp" + index, item.tmp);
       localStorage.setItem("hourlysky" + index, skyValue);
+      localStorage.setItem("hourlyrain" + index, item.pop);
     });
 
     nextweatherData.forEach((item, index) => {
@@ -141,6 +152,7 @@ async function updateWeather() {
           : item.sky;
       localStorage.setItem("hourlytmp" + hourIndex, item.tmp);
       localStorage.setItem("hourlysky" + hourIndex, skyValue);
+      localStorage.setItem("hourlyrain" + hourIndex, item.pop);
     });
 
     // 온도 범위 업데이트
@@ -164,26 +176,23 @@ function loadElements() {
   const currentState = Number(localStorage.getItem("currentSky"));
   let weatherFile = "";
 
-  const rainy = Number(localStorage.getItem("rainy"));
-
-  if (rainy > 1) {
-    weatherFile = "WeatherRain.html";
-  } else {
-    switch (currentState) {
-      case 1:
-        weatherFile = "WeatherClear.html";
-        break;
-      case 2:
-        weatherFile = "WeatherNight.html";
-        break;
-      case 3:
-      case 4:
-        weatherFile = "WeatherCloudy.html";
-        break;
-      default:
-        weatherFile = "WeatherClear.html";
-        break;
-    }
+  switch (currentState) {
+    case 0:
+      weatherFile = "WeatherRain.html";
+      break;
+    case 1:
+      weatherFile = "WeatherClear.html";
+      break;
+    case 2:
+      weatherFile = "WeatherNight.html";
+      break;
+    case 3:
+    case 4:
+      weatherFile = "WeatherCloudy.html";
+      break;
+    default:
+      weatherFile = "WeatherClear.html";
+      break;
   }
 
   $(function () {
