@@ -50,12 +50,12 @@ function updateWeatherInfo() {
     let sky = localStorage.getItem("hourlysky" + i);
     const hour = Number(localStorage.getItem("hours"));
     const hourly = (hour + i) % 24;
-    
+
     // 밤에는 달 아이콘
     if ((hourly >= 0 && hourly <= 6) || (hourly >= 18 && hourly <= 23)) {
-        sky = 2;
+      sky = 2;
     }
-    
+
     const forecastDiv = document.createElement("div");
     forecastDiv.classList.add("hourly-forecast-item");
     forecastDiv.innerHTML = `
@@ -64,25 +64,20 @@ function updateWeatherInfo() {
       <div>${tmp}°C</div>
     `;
     hourlyForecastContainer.appendChild(forecastDiv);
-}
+  }
 }
 
 function getSkyIcon(sky) {
   switch (sky) {
     case 1:
-      console.log(sky)
       return "./src/img/clear.svg";
     case 2:
-      console.log(sky)
       return "./src/img/moon.svg";
     case 3:
-      console.log(sky)
       return "./src/img/cloudy.svg";
     case 4:
-      console.log(sky)
       return "./src/img/cloudy.svg";
     default:
-      console.log(sky)
       return "./src/img/cloudy.svg";
   }
 }

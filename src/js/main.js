@@ -94,9 +94,16 @@ async function updateWeather() {
     const temperature = weatherData[timeIndex].tmp;
     localStorage.setItem("temperature", temperature);
 
+    //현재 시간 기반으로 강수량 가져오기
+    const rainy = weatherData[timeIndex].pop;
+    localStorage.setItem("rainy", rainy);
+
     // 현재 날씨 아이콘 업데이트
     const currentsky = weatherData[timeIndex].sky;
-    if (timeIndex >= 0 && timeIndex <= 6 || timeIndex >= 18 && timeIndex <= 23) {
+    if (
+      (timeIndex >= 0 && timeIndex <= 6) ||
+      (timeIndex >= 18 && timeIndex <= 23)
+    ) {
       currentsky = 2;
     }
     localStorage.setItem("currentSky", currentsky);
@@ -117,18 +124,24 @@ async function updateWeather() {
 
     // 시간대별 날씨 업데이트
     weatherData.forEach((item, index) => {
-      const skyValue = (index >= 0 && index <= 6) || (index >= 18 && index <= 23) ? 2 : item.sky;
+      const skyValue =
+        (index >= 0 && index <= 6) || (index >= 18 && index <= 23)
+          ? 2
+          : item.sky;
       localStorage.setItem("hourlytmp" + index, item.tmp);
       localStorage.setItem("hourlysky" + index, skyValue);
     });
-    
+
     nextweatherData.forEach((item, index) => {
       const hourIndex = index + 24;
-      const skyValue = (hourIndex >= 24 && hourIndex <= 30) || (hourIndex >= 42 && hourIndex <= 47) ? 2 : item.sky;
+      const skyValue =
+        (hourIndex >= 24 && hourIndex <= 30) ||
+        (hourIndex >= 42 && hourIndex <= 47)
+          ? 2
+          : item.sky;
       localStorage.setItem("hourlytmp" + hourIndex, item.tmp);
       localStorage.setItem("hourlysky" + hourIndex, skyValue);
     });
-    
 
     // 온도 범위 업데이트
     const temperatures = weatherData.map((item) => item.tmp);
@@ -145,18 +158,37 @@ async function updateWeather() {
   }
 }
 
-
 function loadElements() {
   // HTML 요소를 비동기적으로 로드
-  $(function () {
-    $("#weather").load("Weather.html");
-  });
+
+  const currentState = Number(localStorage.getItem("currentSky"));
+  let weatherFile = "";
+
+  const rainy = Number(localStorage.getItem("rainy"));
+
+  if (rainy > 1) {
+    weatherFile = "WeatherRain.html";
+  } else {
+    switch (currentState) {
+      case 1:
+        weatherFile = "WeatherClear.html";
+        break;
+      case 2:
+        weatherFile = "WeatherNight.html";
+        break;
+      case 3:
+      case 4:
+        weatherFile = "WeatherCloudy.html";
+        break;
+      default:
+        weatherFile = "WeatherClear.html";
+        break;
+    }
+  }
 
   $(function () {
+    $("#weather").load(weatherFile);
     $("#codimap").load("Codimap.html");
-  });
-
-  $(function () {
     $("#codishop").load("Codishop.html");
   });
 }
