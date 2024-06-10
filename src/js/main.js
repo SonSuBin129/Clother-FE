@@ -1,3 +1,5 @@
+import { API_KEY } from "./api";
+
 document.addEventListener("DOMContentLoaded", async function () {
   // 이전 NowHours 값 저장
   let previousNowHours = Number(localStorage.getItem("NowHours"));
