@@ -25,8 +25,6 @@ async function getAddress() {
   const latitude = localStorage.getItem("latitude");
   const longitude = localStorage.getItem("longitude");
 
-  const API_KEY = "AIzaSyBiQlmQrR2mnHOv-W_6TJbPmg0NTrtlKSI";
-
   const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${API_KEY}&language=ko`;
 
   try {
