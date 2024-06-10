@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // 이전 NowHours 값 저장
   let previousNowHours = Number(localStorage.getItem("NowHours"));
 
-  //위치 가져오기
+  //위치 가져오기!!
   getAddress();
 
   // 날씨 API 호출
